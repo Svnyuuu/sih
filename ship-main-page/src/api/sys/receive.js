@@ -13,7 +13,7 @@ export async function listReceive(params) {
         });
 }
 
-//移入回收站
+//移入回收站d
 export async function HandleDelete(id) {
    console.log('id='+id);
     return await instance.delete('/sys/delete?id='+id)
@@ -23,7 +23,16 @@ export async function HandleDelete(id) {
            console.log(err);
         });
 }
-
+//批量移入回收站
+export async function BaDelete(ids) {
+    console.log('ids='+ids);
+    return await instance.delete('/sys/batchDelete?ids='+ids)
+        .then(res => {
+            return res.data.message;
+        }).catch(err => {
+           console.log(err);
+        });
+}
 //收藏 handleFavorite
 export async function handleFavorite(id,favorite) {
     return await instance.get('/sys/receive/collectUpdate?id='+id+'&favorite='+favorite)
@@ -67,4 +76,17 @@ export async function listDraft(params) {
             console.log(err);
         });
 }
+
+//获取下载地址
+export async function getUrl(url) {
+    console.log('url='+url);
+    return await instance.get(url)
+        .then(res => {
+            return res.data.url;
+        }).catch(err => {
+            console.log(err);
+        });
+}
+
+//
 
