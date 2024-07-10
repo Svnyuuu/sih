@@ -1,0 +1,11 @@
+{
+    "code": 200,
+    "msg": null,
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2tleSI6ImFkNWI2NGRlLWMwOWYtNDRhNS04NGJkLWQwMTMzNDhmOTlkZiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.gorHUTpGCv2KhidNYdetWstr49NOr7ae3FBrxrxEbZiZSaBUgkQgQqzKWeK306ja_ZlGn_j2XVxUo7PQsAgWLQ",
+        "roleList": "[admin]",
+        "userId": 1,
+        "expires_in": 720
+    },
+    "error": false
+}

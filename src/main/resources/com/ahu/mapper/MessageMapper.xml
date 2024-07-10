@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahu.mapper.MessageMapper">
+    <!--动态SQL-->
+    <select id="listMessages" resultType="com.ahu.pojo.Message">
+        select * from message
+            <where>
+                <if test="beginTime!=null">
+                    receiveTime between #{beginTime} and #{endTime}
+                </if>
+                <if test="title!=null">
+                   and subject=#{title}
+                </if>
+                and status=#{status}  and userId=#{userId}
+            </where>
+    </select>
+
+
+    <select id="listSendMessages" resultType="com.ahu.pojo.Message">
+        select * from message
+        <where>
+            <if test="beginTime!=null">
+                sendTime between #{beginTime} and #{endTime}
+            </if>
+            <if test="title!=null">
+                and subject=#{title}
+            </if>
+            and status=#{status}  and userId=#{userId}
+        </where>
+    </select>
+
+
+    <select id="listRecycleMessages" resultType="com.ahu.pojo.Message">
+        select * from message
+        <where>
+            <if test="beginTime!=null">
+                sendTime between #{beginTime} and #{endTime}
+            </if>
+            <if test="title!=null">
+                and subject=#{title}
+            </if>
+            and status=#{status}  and userId=#{userId}
+        </where>
+    </select>
+
+    <select id="listFavoriteMessages" resultType="com.ahu.pojo.Message">
+        select * from message
+        <where>
+            <if test="beginTime!=null">
+                sendTime between #{beginTime} and #{endTime}
+            </if>
+            <if test="title!=null">
+                and subject=#{title}
+            </if>
+            and favorite=#{favorite}  and userId=#{userId}
+        </where>
+    </select>
+
+    <select id="listDraftMessages" resultType="com.ahu.pojo.Message">
+        select * from message
+        <where>
+            <if test="beginTime!=null">
+                sendTime between #{beginTime} and #{endTime}
+            </if>
+            <if test="title!=null">
+                and subject=#{title}
+            </if>
+            and status=#{status}  and userId=#{userId}
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahu.mapper.ParseNetCDFMapper">
+    <resultMap id="BaseResultMap" type="com.ahu.pojo.NetCDF">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="meteorTime" jdbcType="BIGINT" property="meteorTime"/>
+        <result column="latitude" jdbcType="FLOAT" property="latitude"/>
+        <result column="longitude" jdbcType="FLOAT" property="longitude"/>
+        <result column="u10" jdbcType="FLOAT" property="u10"/>
+        <result column="v10" jdbcType="FLOAT" property="v10"/>
+        <result column="mwd" jdbcType="FLOAT" property="mwd"/>
+        <result column="mwp" jdbcType="FLOAT" property="mwp"/>
+        <result column="swh" jdbcType="FLOAT" property="swh"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, meteorTime, latitude, longitude, u10, v10, mwd,mwp,swh
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ${tableName}
+    </select>
+
+    <insert id="insertData" parameterType="com.ahu.pojo.NetCDF">
+        insert into ${tableName} (id, meteorTime, latitude, longitude, u10, v10, mwd,mwp,swh)
+        values (#{nc.id,jdbcType=BIGINT},#{nc.meteorTime,jdbcType=BIGINT}, #{nc.latitude,jdbcType=FLOAT},
+                #{nc.longitude,jdbcType=FLOAT}, #{nc.u10,jdbcType=FLOAT}, #{nc.v10,jdbcType=FLOAT},
+                #{nc.mwd,jdbcType=FLOAT},#{nc.mwp,jdbcType=FLOAT},#{nc.swh,jdbcType=FLOAT})
+    </insert>
+
+
+    <!-- 批量插入数据-->
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into ${tableName} (id, meteorTime, latitude, longitude, u10, v10, mwd,mwp,swh) values
+        <foreach collection="nclist" item="nc" index="index" separator=",">
+            (
+            #{nc.id,jdbcType=BIGINT},
+             #{nc.meteorTime,jdbcType=BIGINT},
+             #{nc.latitude,jdbcType=FLOAT},
+            #{nc.longitude,jdbcType=FLOAT},
+             #{nc.u10,jdbcType=FLOAT},
+             #{nc.v10,jdbcType=FLOAT},
+            #{nc.mwd,jdbcType=FLOAT},
+             #{nc.mwp,jdbcType=FLOAT},
+             #{nc.swh,jdbcType=FLOAT}
+            )
+        </foreach>
+    </insert>
+
+
+    <!--    查看指定的表是否存在-->
+    <select id="existTable" parameterType="String" resultType="Integer">
+        select count(*)
+        from information_schema.TABLES
+        where table_name = #{tableName}
+    </select>
+
+    <!-- 删除指定的表-->
+    <update id="dropTable">
+        DROP TABLE IF EXISTS ${tableName}
+    </update>
+
+    <!-- 创建新的经度表-->
+    <update id="createTable" parameterType="String">
+        CREATE TABLE ${tableName}
+        (
+            `id`   bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+            `meteorTime` bigint(20)   DEFAULT NULL COMMENT '时间',
+            `latitude`  float(5)   DEFAULT NULL COMMENT '纬度',
+            `longitude` float(5)  DEFAULT NULL COMMENT '经度',
+            `v10`    float(10) DEFAULT NULL COMMENT 'u10',
+            `u10`    float(10) DEFAULT NULL COMMENT 'v10',
+            `mwd`    float(10) DEFAULT NULL COMMENT 'mwd',
+            `mwp`    float(10) DEFAULT NULL COMMENT 'mwp',
+            `swh`    float(10) DEFAULT NULL COMMENT 'swh',
+            PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=2897 DEFAULT CHARSET=utf8 COMMENT='经度表';
+    </update>
+
+    <!-- 创建时间表-->
+    <update id="createTimeTable" parameterType="String">
+        CREATE TABLE ${tableName}
+        (
+            `id`   int(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+            `meteorTime` Date  DEFAULT NULL COMMENT '时间',
+            PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=2897 DEFAULT CHARSET=utf8 COMMENT='时间表';
+    </update>
+
+
+
+</mapper>

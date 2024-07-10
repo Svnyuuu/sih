@@ -1,0 +1,453 @@
+{
+  "code": 200,
+  "msg": null,
+  "data": [
+    {
+      "name": "FleetManage",
+      "path": "/fleetManage",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "船队管理",
+        "icon": "fleetManage",
+        "noCache": false,
+        "link": null
+      },
+      "children": [
+        {
+          "name": "Info",
+          "path": "info",
+          "hidden": false,
+          "component": "fleetManage/info/index",
+          "meta": {
+            "title": "船队信息",
+            "icon": "info",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Plan",
+          "path": "plan",
+          "hidden": false,
+          "component": "fleetManage/plan/index",
+          "meta": {
+            "title": "航行计划管理",
+            "icon": "plan",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Status",
+          "path": "status",
+          "hidden": false,
+          "component": "fleetManage/status/index",
+          "meta": {
+            "title": "航行状态",
+            "icon": "status",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Energy",
+          "path": "energy",
+          "hidden": false,
+          "component": "fleetManage/energy/index",
+          "meta": {
+            "title": "能效分析",
+            "icon": "energy",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppliCenter",
+      "path": "/appliCenter",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "应用中心",
+        "icon": "center",
+        "noCache": false,
+        "link": null
+      },
+      "children": [
+        {
+          "name": "Warehouse",
+          "path": "warehouse",
+          "hidden": false,
+          "component": "appliCenter/warehouse/index",
+          "meta": {
+            "title": "应用仓库",
+            "icon": "warehouse",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "AppliManage",
+          "path": "appliManage",
+          "hidden": false,
+          "component": "appliCenter/appliManage/index",
+          "meta": {
+            "title": "应用管理",
+            "icon": "manage",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "EarlyWarning",
+      "path": "/earlyWarning",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "预警建议",
+        "icon": "earlyWarning",
+        "noCache": false,
+        "link": null
+      },
+      "children": []
+    },
+    {
+      "name": "Communication",
+      "path": "/communication",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "船岸通信",
+        "icon": "build",
+        "noCache": false,
+        "link": null
+      },
+      "children": []
+    },
+    {
+      "name": "Manage",
+      "path": "/manage",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "平台管理",
+        "icon": "manage",
+        "noCache": false,
+        "link": null
+      },
+      "children": [
+        {
+          "name": "User",
+          "path": "user",
+          "hidden": false,
+          "component": "manage/user/index",
+          "meta": {
+            "title": "用户管理",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Role",
+          "path": "role",
+          "hidden": false,
+          "component": "manage/role/index",
+          "meta": {
+            "title": "角色管理",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Menu",
+          "path": "menu",
+          "hidden": false,
+          "component": "manage/menu/index",
+          "meta": {
+            "title": "菜单管理",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Dept",
+          "path": "dept",
+          "hidden": false,
+          "component": "manage/dept/index",
+          "meta": {
+            "title": "部门管理",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Post",
+          "path": "post",
+          "hidden": false,
+          "component": "manage/post/index",
+          "meta": {
+            "title": "岗位管理",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Dict",
+          "path": "dict",
+          "hidden": false,
+          "component": "manage/dict/index",
+          "meta": {
+            "title": "字典管理",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Dictionary",
+          "path": "dictionary",
+          "hidden": false,
+          "component": "manage/dictionary/index",
+          "meta": {
+            "title": "数据字典",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Config",
+          "path": "config",
+          "hidden": false,
+          "component": "manage/config/index",
+          "meta": {
+            "title": "参数设置",
+            "icon": "user",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Notice",
+          "path": "notice",
+          "hidden": false,
+          "component": "manage/notice/index",
+          "meta": {
+            "title": "通知公告",
+            "icon": "message",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Operlog",
+          "path": "operlog",
+          "hidden": false,
+          "component": "manage/operlog/index",
+          "meta": {
+            "title": "操作日志",
+            "icon": "form",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Logininfor",
+          "path": "logininfor",
+          "hidden": false,
+          "component": "manage/logininfor/index",
+          "meta": {
+            "title": "登录日志",
+            "icon": "logininfor",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Backup",
+          "path": "backup",
+          "hidden": false,
+          "component": "manage/backup/index",
+          "meta": {
+            "title": "备份还原",
+            "icon": "checkbox",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Operation",
+          "path": "operation",
+          "hidden": false,
+          "redirect": "noRedirect",
+          "component": "manage/operation/index",
+          "alwaysShow": true,
+          "meta": {
+            "title": "数据库运维",
+            "icon": "operation",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "ModelManage",
+          "path": "modelManage",
+          "hidden": false,
+          "component": "manage/modelManage/index",
+          "meta": {
+            "title": "模型管理",
+            "icon": "ModelManage",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "PortManage",
+          "path": "portManage",
+          "hidden": false,
+          "component": "manage/portManage/index",
+          "meta": {
+            "title": "港口管理",
+            "icon": "portManage",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Monitor",
+          "path": "monitor",
+          "hidden": false,
+          "redirect": "noRedirect",
+          "component": "manage/monitor/index",
+          "alwaysShow": true,
+          "meta": {
+            "title": "活动监视器",
+            "icon": "monitor",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Virtual",
+          "path": "virtual",
+          "hidden": false,
+          "component": "manage/virtual/index",
+          "meta": {
+            "title": "虚拟化平台",
+            "icon": "virtual",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "NetSecManage",
+          "path": "netSecManage",
+          "hidden": false,
+          "component": "manage/netSecManage/index",
+          "meta": {
+            "title": "网络安全管理",
+            "icon": "netSecManage",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "Datax",
+      "path": "/datax",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "数据采集",
+        "icon": "build",
+        "noCache": false,
+        "link": null
+      },
+      "children": [
+        {
+          "name": "Dataxindex",
+          "path": "dataxindex",
+          "hidden": false,
+          "component": "datax/index",
+          "meta": {
+            "title": "首页",
+            "icon": "guide",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Dataxdevice",
+          "path": "dataxdevice",
+          "hidden": false,
+          "component": "datax/device/index",
+          "meta": {
+            "title": "设备管理",
+            "icon": "dashboard",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Dataxconfig",
+          "path": "dataxconfig",
+          "hidden": false,
+          "component": "datax/config/index",
+          "meta": {
+            "title": " 参数设置",
+            "icon": "edit",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Record",
+          "path": "record",
+          "hidden": false,
+          "component": "datax/record/index",
+          "meta": {
+            "title": "同步记录",
+            "icon": "row",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "Datax/controlapi",
+          "path": "datax/controlapi",
+          "hidden": false,
+          "component": "datax/controlapi/index",
+          "meta": {
+            "title": "控制指令",
+            "icon": "component",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    }
+  ],
+  "error": false
+}

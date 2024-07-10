@@ -1,0 +1,200 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-family: MicrosoftYaHei;
+}
+
+.layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+}
+
+.bg {
+  width: 19.9vw;
+  height: 2.6vw;
+  position: absolute;
+  left: 2.86vw;
+  top: 2.14vw;
+}
+
+.floorBg {
+  width: 45vw;
+  height: 7.81vw;
+  position: absolute;
+  left: 50%;
+  top: 7.29vw;
+  transform: translateX(-50%);
+}
+
+.container {
+  position: fixed;
+  /* 固定定位，相对于视口 */
+  top: 50%;
+  /* 垂直居中 */
+  left: 50%;
+  /* 水平居中 */
+  transform: translate(-50%, -50%);
+  /* 精确调整到中心位置 */
+  width: 30vw;
+  /* 宽度为视口宽度的30%，根据需要自行调整 */
+  height: auto;
+  /* 高度根据内容自动调整，保证登录框内部内容适应 */
+  padding: 1.46vw 0.62vw 1.56vw;
+  /* 内边距根据需要自行调整 */
+  background: url(../images/login_boder.png) no-repeat center center;
+  background-size: calc(100% + 2.92vw) calc(100% + 3.12vw);
+  /* 让背景图片稍大于容器尺寸 */
+  z-index: 100;
+  /* 确保它位于其他内容之上 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-origin: padding-box;
+}
+
+.wrapper {
+  width: 25.62vw;
+  height: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: center;
+  padding: 2.14vw 0.62vw 1.88vw;
+  background-image: url(../images/img_10.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-origin: padding-box;
+}
+
+.groupyi {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  width: 20.62vw;
+}
+
+.login-title {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  height: 1.72vw;
+  width: 12.66vw;
+}
+
+.strip-left {
+  width: 6.25vw;
+  height: 0.73vw;
+  align-self: center;
+  margin-top: 0.16vw;
+}
+
+.strip-right {
+  width: 6.25vw;
+  height: 0.73vw;
+  align-self: center;
+  margin-top: 0.16vw;
+}
+
+.tag {
+  color: rgba(255, 255, 255, 1);
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.25vw;
+  letter-spacing: 0.13vw;
+  line-height: 1.72vw;
+  align-self: center;
+  white-space: nowrap;
+  margin: 0 1.3vw;
+}
+
+.block-name {
+  width: 20.47vw;
+  height: 2.71vw;
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  margin: 2.6vw 0.05vw 0 0;
+  padding: 0.73vw 0.62vw 0.68vw;
+  background-image: url(../images/img_11.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-origin: padding-box;
+}
+
+.icon-login-user {
+  width: 0.94vw;
+  height: 1.09vw;
+  margin-left: 0.16vw;
+  align-self: center;
+}
+
+.userName {
+  color: rgba(153, 153, 153, 1);
+  font-size: 0.94vw;
+  line-height: 1.3vw;
+  margin-left: 0.99vw;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.block-pwd {
+  width: 20.47vw;
+  height: 2.71vw;
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  margin: 1.2vw 0.05vw 0 0;
+  padding: 0.62vw 0.62vw 0.78vw;
+  background-image: url(../images/img_12.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-origin: padding-box;
+}
+
+.icon-login-pwd {
+  width: 0.94vw;
+  height: 1.09vw;
+  align-self: center;
+  margin: 0 0 0.1vw 0.21vw;
+}
+
+.userPwd {
+  color: rgba(153, 153, 153, 1);
+  font-size: 0.94vw;
+  line-height: 1.3vw;
+  margin-left: 0.89vw;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.btn-login {
+  background-color: rgba(0, 128, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 20.47vw;
+  margin: 2.34vw 0.05vw 0 0;
+  padding: 0.62vw;
+  border-radius: 0.21vw;
+}
+
+.btn-login-content {
+  color: rgba(255, 255, 255, 1);
+  font-size: 1.04vw;
+  line-height: 1.46vw;
+  margin-left: 0.05vw;
+  align-self: flex-start;
+  max-width: 19.11vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

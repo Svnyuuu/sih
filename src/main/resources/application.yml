@@ -1,0 +1,21 @@
+# Spring配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/comm?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456 #数据库连接
+
+  #MQTT配置信息
+mqtt:
+  #MQTT服务端地址，端口默认为18083，如果有多个，用逗号隔开，如tcp://127.0.0.1:18083,tcp://192.168.60.133:18083
+  url: tcp://localhost:18083
+  #用户名
+  username: admin
+  #密码
+  password: dxqllp1982
+  #发布客户端id（不能重复）
+  clientIdPub: mqttx_fchsoft_pub
+  #订阅客户端id（不能重复）
+  clientIdSub: mqttx_fchsoft_sub
+  topic: 导弹
