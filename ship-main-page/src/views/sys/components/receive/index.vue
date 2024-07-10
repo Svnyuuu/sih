@@ -3,10 +3,10 @@
     <div class="receive-head">
       <el-row :gutter="20">
         <el-col :span="4">
-          <el-button type="danger" :icon="Delete" @click="handleDelete">删除</el-button>
-          <el-button type="primary" :icon="Star" @click="handleStar">收藏</el-button>
+          <el-button type="danger" :icon="Delete" @click="BatchDelete()">删除</el-button>
+          <el-button type="primary" :icon="Star" @click="handleFavorite">收藏</el-button>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="dynamicSpan">
           <el-date-picker
               v-model="time"
               type="datetimerange"
@@ -52,7 +52,7 @@
         </el-table-column>
         <el-table-column label="附件">
           <template #default="{ row }">
-            <img style="width: 20px;" src="@/assets/images/附件@2x.png" alt="">
+            <img style="width: 20px;cursor: pointer;" src="@/assets/images/附件@2x.png" alt="" @click="sendUrlToBackend(row)">
           </template>
         </el-table-column>
 
@@ -90,7 +90,7 @@ import {ref, reactive} from 'vue'
 import {Delete, Star, Search, Share} from '@element-plus/icons-vue'
 import moment from 'moment'
 //导入receive.js文件
-import {listReceive, HandleDelete, handleFavorite} from '@/api/sys/receive.js'
+import {listReceive, HandleDelete, handleFavorite, getUrl, BaDelete} from '@/api/sys/receive.js'
 import {ElMessageBox, ElMessage} from 'element-plus'
 import {useRouter} from 'vue-router'
 
@@ -98,7 +98,80 @@ const router = useRouter()
 
 const background = ref(true)
 
+//data 内含 tableData 和 multipleSelection
+const data = reactive({
+  tableData: [],
+  multipleSelection: []
+})
+// const multipleSelection = ref([]);
+// 选择数据
+const handleSelectionChange = (val) => {
+  data.multipleSelection = val;
+}
+// //批量删除
+// const BatchDelete = () => {
+//   const ids = data.multipleSelection.map(item => item.id)
+//   if (data.multipleSelection.length === 0) {
+//     ElMessage.warning('请选择要删除的数据')
+//     return
+//   }
+//   ElMessageBox.confirm('删除数据后无法恢复，您确认删除吗?', '删除确认', {type: 'warning'})
 
+//     .then(async () => {
+//         ids = data.multipleSelection.map(item => item.id),
+//         console.log('row ids=' + ids);
+//         let res = await BaDelete(ids.join(',')); 
+//         ElMessage({
+//           type: 'success',
+//           message: '删除成功!'
+//         })
+//     .catch(err => {
+//       // 添加错误处理逻辑
+//       ElMessage.error('删除时发生错误: ' + err.message)
+//     })
+//   })
+//   .catch(() => {
+//     // 处理取消操作的逻辑
+//     ElMessage.info('取消操作')
+//   })
+// }
+const BatchDelete = async () => {
+  const ids = data.multipleSelection.map(item => item.id);
+  if (data.multipleSelection.length === 0) {
+    ElMessage.warning('请选择要删除的数据');
+    return;
+  }
+  try {
+    await ElMessageBox.confirm('删除数据后移动到回收站', '删除确认', { type: 'warning' });
+    console.log('row ids=' + ids);
+    let res = await BaDelete(ids.join(',')); // 确保ids是以逗号分隔的字符串
+    ElMessage({
+      type: 'success',
+      message: '删除成功!'
+    });
+  } catch (err) {
+    if (err && err.message) {
+      // 用户取消操作会进入这里
+      ElMessage.info('取消操作');
+    } else {
+      // 其他错误，如网络请求错误
+      ElMessage.error('删除时发生错误: ' + err.message);
+    }
+  }
+};
+
+
+
+
+const dynamicSpan = () => {
+      // 假设页面宽度为1920时，span值为5
+      const baseWidth = 1920;
+      const baseSpan = 5;
+      const currentWidth = window.innerWidth;
+      // 根据当前页面宽度动态计算span值
+      return Math.round((currentWidth / baseWidth) * baseSpan);
+    }
+  
 //重置
 const HandleReset = () => {
   time.value = null;
@@ -185,12 +258,17 @@ const favorite = async (row) => {
   //刷新页面
   getReceiveList();
 }
-
-
-//显示详细页面
-const detailMessage = (row) => {
-  router.push({path: '/sys/details', query: {data: encodeURIComponent(JSON.stringify(row))}});
+//传url
+const sendUrlToBackend = (row) => {
+  getUrl(row);
 }
+
+
+ //显示详细页面
+ const detailMessage = (row) => {
+   router.push({path: '/sys/details', query: {data: encodeURIComponent(JSON.stringify(row))}});
+ }
+
 
 
 </script>
